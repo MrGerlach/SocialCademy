@@ -22,6 +22,7 @@
 		907166F328F1F7C40086F6E4 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 907166F228F1F7C40086F6E4 /* FirebaseFirestoreSwift */; };
 		907166F528F21D900086F6E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 907166F428F21D900086F6E4 /* GoogleService-Info.plist */; };
 		907166FA28F21F110086F6E4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907166F928F21F110086F6E4 /* Post.swift */; };
+		907AFA9C29008ABE001B8D87 /* ErrorAlertViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907AFA9B29008ABE001B8D87 /* ErrorAlertViewModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		907166E628F1F4EF0086F6E4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		907166F428F21D900086F6E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "SocialCademy/Resources/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		907166F928F21F110086F6E4 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		907AFA9B29008ABE001B8D87 /* ErrorAlertViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertViewModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				9068A11028F8A396000C6E5A /* EmptyListView.swift */,
+				907AFA9B29008ABE001B8D87 /* ErrorAlertViewModifier.swift */,
 			);
 			path = SupportingViews;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				903260CA28F4A8CE005EDDBC /* PostsRepository.swift in Sources */,
 				903260C728F4A486005EDDBC /* PostsViewModel.swift in Sources */,
 				903260C028F48E4E005EDDBC /* PostRow.swift in Sources */,
+				907AFA9C29008ABE001B8D87 /* ErrorAlertViewModifier.swift in Sources */,
 				903260CD28F7579B005EDDBC /* Loadable.swift in Sources */,
 				907166E028F1F4E80086F6E4 /* SocialCademyApp.swift in Sources */,
 				903260C228F49CA2005EDDBC /* NewPostForm.swift in Sources */,

@@ -35,11 +35,13 @@ struct PostList: View {
                     
                 case let .loaded(posts):
                     List(posts) { post in
-                        if searchText.isEmpty || post.contains(searchText){
-                            PostRow(post: post)
+                        if searchText.isEmpty || post.contains(searchText) {
+                            PostRow(post: post,
+                                    deleteAction: viewModel.makeDeleteAction(for: post))
                         }
                     }
                 .searchable(text: $searchText)
+                .animation(.default, value: posts)
                 }
             }
             .navigationTitle("Posts")
@@ -60,29 +62,29 @@ struct PostList: View {
     }
 }
 
-//struct PostList_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PostList()
-//    }
-//}
-    #if DEBUG
-    struct PostList_Previews: PreviewProvider {
-        @MainActor
-        private struct ListPreview: View {
-            let state: Loadable<[Post]>
-            
-            var body: some View {
-                let postsRepository = PostRepositoryStub(state: state)
-                let viewModel = PostsViewModel(postsRepository: postsRepository)
-                PostList(viewModel: viewModel)
-            }
-        }
-        static var previews: some View {
-            ListPreview(state: .loaded([Post.testPost]))
-            ListPreview(state: .empty)
-            ListPreview(state: .error)
-            ListPreview(state: .loading)
-        }
+struct PostList_Previews: PreviewProvider {
+    static var previews: some View {
+        PostList()
     }
-    #endif
-
+}
+//    #if DEBUG
+//    struct PostList_Previews: PreviewProvider {
+//        @MainActor
+//        private struct ListPreview: View {
+//            let state: Loadable<[Post]>
+//
+//            var body: some View {
+//                let postsRepository = PostRepositoryStub(state: state)
+//                let viewModel = PostsViewModel(postsRepository: postsRepository)
+//                PostList(viewModel: viewModel)
+//            }
+//        }
+//        static var previews: some View {
+//            ListPreview(state: .loaded([Post.testPost]))
+//            ListPreview(state: .empty)
+//            ListPreview(state: .error)
+//            ListPreview(state: .loading)
+//        }
+//    }
+//    #endif
+//
