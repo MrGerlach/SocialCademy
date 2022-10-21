@@ -23,6 +23,7 @@
 		907166F528F21D900086F6E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 907166F428F21D900086F6E4 /* GoogleService-Info.plist */; };
 		907166FA28F21F110086F6E4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907166F928F21F110086F6E4 /* Post.swift */; };
 		907AFA9C29008ABE001B8D87 /* ErrorAlertViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907AFA9B29008ABE001B8D87 /* ErrorAlertViewModifier.swift */; };
+		90A2F7D729031D68005D2E78 /* PostRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A2F7D629031D68005D2E78 /* PostRowViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		907166F428F21D900086F6E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "SocialCademy/Resources/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		907166F928F21F110086F6E4 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		907AFA9B29008ABE001B8D87 /* ErrorAlertViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertViewModifier.swift; sourceTree = "<group>"; };
+		90A2F7D629031D68005D2E78 /* PostRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRowViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				903260C628F4A486005EDDBC /* PostsViewModel.swift */,
+				90A2F7D629031D68005D2E78 /* PostRowViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90A2F7D729031D68005D2E78 /* PostRowViewModel.swift in Sources */,
 				907166FA28F21F110086F6E4 /* Post.swift in Sources */,
 				903260BE28F48764005EDDBC /* PostList.swift in Sources */,
 				903260CA28F4A8CE005EDDBC /* PostsRepository.swift in Sources */,
