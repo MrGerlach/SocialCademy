@@ -24,6 +24,8 @@
 		907166FA28F21F110086F6E4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907166F928F21F110086F6E4 /* Post.swift */; };
 		907AFA9C29008ABE001B8D87 /* ErrorAlertViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907AFA9B29008ABE001B8D87 /* ErrorAlertViewModifier.swift */; };
 		90A2F7D729031D68005D2E78 /* PostRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A2F7D629031D68005D2E78 /* PostRowViewModel.swift */; };
+		90A2F7D92903DFB9005D2E78 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A2F7D82903DFB9005D2E78 /* MainTabView.swift */; };
+		90E4791C2909A41300D06530 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 90E4791B2909A41300D06530 /* FirebaseAuth */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,7 @@
 		907166F928F21F110086F6E4 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		907AFA9B29008ABE001B8D87 /* ErrorAlertViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertViewModifier.swift; sourceTree = "<group>"; };
 		90A2F7D629031D68005D2E78 /* PostRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRowViewModel.swift; sourceTree = "<group>"; };
+		90A2F7D82903DFB9005D2E78 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +55,7 @@
 				907166EF28F1F7C40086F6E4 /* FirebaseAnalytics in Frameworks */,
 				907166F128F1F7C40086F6E4 /* FirebaseFirestore in Frameworks */,
 				907166F328F1F7C40086F6E4 /* FirebaseFirestoreSwift in Frameworks */,
+				90E4791C2909A41300D06530 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +102,7 @@
 			children = (
 				907166DE28F1F4E80086F6E4 /* SocialCademy */,
 				907166DD28F1F4E80086F6E4 /* Products */,
+				90E4791A2909A41300D06530 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,6 +139,7 @@
 		907166F628F21E020086F6E4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				90A2F7D82903DFB9005D2E78 /* MainTabView.swift */,
 				903260BD28F48764005EDDBC /* PostList.swift */,
 				903260C128F49CA2005EDDBC /* NewPostForm.swift */,
 				903260BF28F48E4E005EDDBC /* PostRow.swift */,
@@ -159,6 +165,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		90E4791A2909A41300D06530 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -179,6 +192,7 @@
 				907166EE28F1F7C40086F6E4 /* FirebaseAnalytics */,
 				907166F028F1F7C40086F6E4 /* FirebaseFirestore */,
 				907166F228F1F7C40086F6E4 /* FirebaseFirestoreSwift */,
+				90E4791B2909A41300D06530 /* FirebaseAuth */,
 			);
 			productName = SocialCademy;
 			productReference = 907166DC28F1F4E80086F6E4 /* SocialCademy.app */;
@@ -249,6 +263,7 @@
 				907166E028F1F4E80086F6E4 /* SocialCademyApp.swift in Sources */,
 				903260C228F49CA2005EDDBC /* NewPostForm.swift in Sources */,
 				9068A11128F8A396000C6E5A /* EmptyListView.swift in Sources */,
+				90A2F7D92903DFB9005D2E78 /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +491,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 907166ED28F1F7C40086F6E4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
+		};
+		90E4791B2909A41300D06530 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 907166ED28F1F7C40086F6E4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -12,7 +12,8 @@ import CoreMedia
 
 
 protocol PostsRepositoryProtocol {
-    func fetchPosts() async throws -> [Post]
+    func fetchAllPosts() async throws -> [Post]
+    func fetchFavoritePosts() async throws -> [Post]
     func create(_ post: Post) async throws
     func delete(_ post: Post) async throws
     func favorite(_ post: Post) async throws
@@ -27,7 +28,7 @@ struct PostsRepository: PostsRepositoryProtocol {
         try await document.setData(from: post)
     }
     
-     func fetchPosts() async throws -> [Post] {
+    private func fetchPosts(from query: Query) async throws -> [Post] {
         let snapshot = try await postsReference
             .order(by: "timestamp", descending: true)
             .getDocuments()
@@ -35,6 +36,15 @@ struct PostsRepository: PostsRepositoryProtocol {
             try! document.data(as: Post.self)
         }
     }
+    
+     func fetchAllPosts() async throws -> [Post] {
+         return try await fetchPosts(from: postsReference)
+    }
+    
+    func fetchFavoritePosts() async throws -> [Post] {
+        return try await fetchPosts(from: postsReference.whereField("isFavorite", isEqualTo: true))
+    }
+    
     
     func delete(_ post: Post) async throws {
         let document = postsReference.document(post.id.uuidString)
@@ -50,6 +60,7 @@ struct PostsRepository: PostsRepositoryProtocol {
         let document = postsReference.document(post.id.uuidString)
         try await document.setData(["isFavorite": false], merge: true)
     }
+    
 }
 
 private extension DocumentReference {
@@ -70,7 +81,11 @@ private extension DocumentReference {
 struct PostRepositoryStub: PostsRepositoryProtocol {
     let state: Loadable<[Post]>
     
-    func fetchPosts() async throws -> [Post] {
+    func fetchAllPosts() async throws -> [Post] {
+        return try await state.simulate()
+    }
+    
+    func fetchFavoritePosts() async throws -> [Post] {
         return try await state.simulate()
     }
     

@@ -43,7 +43,7 @@ struct PostList: View {
                 .animation(.default, value: posts)
                 }
             }
-            .navigationTitle("Posts")
+            .navigationTitle(viewModel.title)
             .toolbar {
                 Button {
                     showNewPostForm = true
@@ -66,24 +66,24 @@ struct PostList_Previews: PreviewProvider {
         PostList()
     }
 }
-//    #if DEBUG
-//    struct PostList_Previews: PreviewProvider {
-//        @MainActor
-//        private struct ListPreview: View {
-//            let state: Loadable<[Post]>
+//  #if DEBUG
+//struct PostsList_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ListPreview(state: .loaded([Post.testPost]))
+//        ListPreview(state: .empty)
+//        ListPreview(state: .error)
+//        ListPreview(state: .loading)
+//    }
 //
-//            var body: some View {
-//                let postsRepository = PostRepositoryStub(state: state)
-//                let viewModel = PostsViewModel(postsRepository: postsRepository)
-//                PostList(viewModel: viewModel)
-//            }
-//        }
-//        static var previews: some View {
-//            ListPreview(state: .loaded([Post.testPost]))
-//            ListPreview(state: .empty)
-//            ListPreview(state: .error)
-//            ListPreview(state: .loading)
+//    @MainActor
+//    private struct ListPreview: View {
+//        let state: Loadable<[Post]>
+//
+//        var body: some View {
+//            let postsRepository = PostRepositoryStub(state: state)
+//            let viewModel = PostsViewModel(postsRepository: postsRepository)
+//            PostList(viewModel: viewModel)
 //        }
 //    }
-//    #endif
-//
+//}
+//#endif
