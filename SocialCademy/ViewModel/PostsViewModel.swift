@@ -11,19 +11,18 @@ import Foundation
 
 
 class PostsViewModel: ObservableObject {
-    enum Filter {
-        case all, favorites
-    }
     
+    // ------------- Variables ---------------
     @Published var posts: Loadable<[Post]> = .loading
     
     private let filter: Filter
     private let postsRepository: PostsRepositoryProtocol
-    init(filter: Filter = .all, postsRepository: PostsRepositoryProtocol = PostsRepository()) {
+    init(filter: Filter = .all, postsRepository: PostsRepositoryProtocol) {
         self.filter = filter
         self.postsRepository = postsRepository
     }
     
+    // --------------- Functions -------------------
     func makePostRowViewModel(for post: Post) -> PostRowViewModel {
         return PostRowViewModel(post: post,
                                 deleteAction: { [weak self] in
@@ -38,13 +37,20 @@ class PostsViewModel: ObservableObject {
             self?.posts.value?[i].isFavorite = newValue})
     }
     
-    
-    func makeCreateAction() -> NewPostForm.CreateAction {
-        return { [weak self] post in
+    func makeNewPostsViewModel() -> FormViewModel<Post> {
+        return FormViewModel(initialValue: Post(title: "", content: "", author: postsRepository.user),
+                             action: { [weak self] post in
             try await self?.postsRepository.create(post)
             self?.posts.value?.insert(post, at: 0)
-        }
-    }
+        })
+    } // returns the FormViewModel with the initialValue set to an empty post.
+    
+//    func makeCreateAction() -> NewPostForm.CreateAction {
+//        return { [weak self] post in
+//            try await self?.postsRepository.create(post)
+//            self?.posts.value?.insert(post, at: 0)
+//        }
+//    }
     
     func fetchPosts() {
         Task {
@@ -57,6 +63,10 @@ class PostsViewModel: ObservableObject {
         }
     }
     
+    // ----------- Posts type filter ----------
+    enum Filter {
+        case all, favorites
+    }
     
     var title: String {
         switch filter {

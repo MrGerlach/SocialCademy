@@ -23,6 +23,8 @@
 		907166F528F21D900086F6E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 907166F428F21D900086F6E4 /* GoogleService-Info.plist */; };
 		907166FA28F21F110086F6E4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907166F928F21F110086F6E4 /* Post.swift */; };
 		907AFA9C29008ABE001B8D87 /* ErrorAlertViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907AFA9B29008ABE001B8D87 /* ErrorAlertViewModifier.swift */; };
+		90A23C27291678BD0016B281 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A23C26291678BD0016B281 /* User.swift */; };
+		90A23C29291686580016B281 /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A23C28291686580016B281 /* ViewModelFactory.swift */; };
 		90A2F7D729031D68005D2E78 /* PostRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A2F7D629031D68005D2E78 /* PostRowViewModel.swift */; };
 		90A2F7D92903DFB9005D2E78 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A2F7D82903DFB9005D2E78 /* MainTabView.swift */; };
 		90E4791C2909A41300D06530 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 90E4791B2909A41300D06530 /* FirebaseAuth */; };
@@ -49,6 +51,8 @@
 		907166F428F21D900086F6E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "SocialCademy/Resources/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		907166F928F21F110086F6E4 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		907AFA9B29008ABE001B8D87 /* ErrorAlertViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertViewModifier.swift; sourceTree = "<group>"; };
+		90A23C26291678BD0016B281 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		90A23C28291686580016B281 /* ViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelFactory.swift; sourceTree = "<group>"; };
 		90A2F7D629031D68005D2E78 /* PostRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRowViewModel.swift; sourceTree = "<group>"; };
 		90A2F7D82903DFB9005D2E78 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		90E4791E2909A7AB00D06530 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 				90A2F7D629031D68005D2E78 /* PostRowViewModel.swift */,
 				90E479202909AE0F00D06530 /* AuthViewModel.swift */,
 				90E479262909B41300D06530 /* FormViewModel.swift */,
+				90A23C28291686580016B281 /* ViewModelFactory.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				907166F928F21F110086F6E4 /* Post.swift */,
+				90A23C26291678BD0016B281 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -291,11 +297,13 @@
 				903260CD28F7579B005EDDBC /* Loadable.swift in Sources */,
 				907166E028F1F4E80086F6E4 /* SocialCademyApp.swift in Sources */,
 				90E479212909AE0F00D06530 /* AuthViewModel.swift in Sources */,
+				90A23C29291686580016B281 /* ViewModelFactory.swift in Sources */,
 				90E479232909B13300D06530 /* AuthView.swift in Sources */,
 				903260C228F49CA2005EDDBC /* NewPostForm.swift in Sources */,
 				90E479272909B41300D06530 /* FormViewModel.swift in Sources */,
 				9068A11128F8A396000C6E5A /* EmptyListView.swift in Sources */,
 				90A2F7D92903DFB9005D2E78 /* MainTabView.swift in Sources */,
+				90A23C27291678BD0016B281 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

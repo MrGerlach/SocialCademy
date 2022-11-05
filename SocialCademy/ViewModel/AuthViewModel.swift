@@ -8,15 +8,19 @@
 import Foundation
 
 @MainActor
+
 class AuthViewModel: ObservableObject {
-    @Published var isAuthenticated = false
+
+// ------------ Variables ----------------
+    @Published var user: User?
 //    @Published var email = ""
 //    @Published var password = ""
     
     private let authService = AuthService()
     
+    // synchronizing user property with AuthServies's
     init() {
-        authService.$isAuthenticated.assign(to: &$isAuthenticated)
+        authService.$user.assign(to: &$user)
     }
     
 //    func signIn() {
@@ -29,6 +33,8 @@ class AuthViewModel: ObservableObject {
 //        }
 //    }
     
+    
+    // ------------------- Functions ---------------------
     func makeSignInViewModel() -> SignInViewModel {
         return SignInViewModel(action: authService.signIn(email: password:))
     }
@@ -39,6 +45,7 @@ class AuthViewModel: ObservableObject {
     
 }
 
+// -------------- Views for Sign In / Create Account -------------------
 extension AuthViewModel {
     class SignInViewModel: FormViewModel<(email: String, password: String)> {
         convenience init(action: @escaping Action) {

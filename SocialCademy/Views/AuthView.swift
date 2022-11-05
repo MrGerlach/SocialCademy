@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct AuthView: View {
+    // ----------- Variables --------------
     @StateObject var viewModel = AuthViewModel()
     
+    // ----------- View post or Sign In / Create Account ----------
     var body: some View {
-        if viewModel.isAuthenticated {
+        if let user = viewModel.user {
             MainTabView()
+                .environmentObject(ViewModelFactory(user: user))
         } else {
             NavigationView {
                 SignInForm(viewModel: viewModel.makeSignInViewModel()) {
@@ -23,6 +26,32 @@ struct AuthView: View {
     }
 }
 
+// ------------- View: Sign In --------------
+private extension AuthView {
+    struct SignInForm<Footer: View>: View {
+        @StateObject var viewModel: AuthViewModel.SignInViewModel
+        @ViewBuilder let footer: () -> Footer
+        
+        var body: some View {
+            Form {
+                TextField("Email", text: $viewModel.email)
+                    .textContentType(.emailAddress)
+                SecureField("Password", text: $viewModel.password)
+                    .textContentType(.password)
+            } footer: {
+                Button("Sign In", action: viewModel.submit)
+                    .buttonStyle(.primary)
+                footer()
+                    .padding()
+            }
+            .alert("Cannot Sign In", error: $viewModel.error)
+            .disabled(viewModel.isWorking)
+            .onSubmit(viewModel.submit)
+        }
+    }
+}
+
+// ----------- View: Create Account -------------
 private extension AuthView {
     struct CreateAccountForm: View {
         @Environment(\.dismiss) private var dismiss
@@ -53,30 +82,8 @@ private extension AuthView {
         
 }
 
-private extension AuthView {
-    struct SignInForm<Footer: View>: View {
-        @StateObject var viewModel: AuthViewModel.SignInViewModel
-        @ViewBuilder let footer: () -> Footer
-        
-        var body: some View {
-            Form {
-                TextField("Email", text: $viewModel.email)
-                    .textContentType(.emailAddress)
-                SecureField("Password", text: $viewModel.password)
-                    .textContentType(.password)
-            } footer: {
-                Button("Sign In", action: viewModel.submit)
-                    .buttonStyle(.primary)
-                footer()
-                    .padding()
-            }
-            .alert("Cannot Sign In", error: $viewModel.error)
-            .disabled(viewModel.isWorking)
-            .onSubmit(viewModel.submit)
-        }
-    }
-}
-
+//  ------------ Styled form -----------------
+//                 (used above)
 private extension AuthView {
     struct Form<Content: View, Footer: View>: View {
         @ViewBuilder let content: () -> Content

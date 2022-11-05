@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct PostRow: View {
+    // ------- Variables -------
     @ObservedObject var viewModel: PostRowViewModel
-    
     @State private var showConfirmationDialog = false
 
     
     var body: some View {
+        
         VStack(alignment: .leading, spacing: 10) {
+   // -------------------- Post Content ----------------------
             HStack {
-                Text(viewModel.authorName)
+                Text(viewModel.author.name)
                     .font(.subheadline)
                     .fontWeight(.medium)
                 Spacer()
@@ -28,6 +30,8 @@ struct PostRow: View {
                 .font(.title3)
                 .fontWeight(.semibold)
             Text(viewModel.content)
+            
+    //  --------------------- Buttons locations ----------------------------
             HStack {
                 FavoriteButton(isFavorite: viewModel.isFavorite, action: {viewModel.favoritePost()})
                 Spacer()
@@ -41,6 +45,7 @@ struct PostRow: View {
             }
         }
         .padding(.vertical)
+        // ---------------- Delete Button ------------------------
         .confirmationDialog("Are you sure you want to delete this post?", isPresented: $showConfirmationDialog, titleVisibility: .visible) {
             Button("Delete", role: .destructive, action: {viewModel.deletePost()})
         }
@@ -48,6 +53,7 @@ struct PostRow: View {
     }
 }
 
+ // ---------------- Favorite Button --------------------
 private extension PostRow {
     struct FavoriteButton: View {
         let isFavorite: Bool
