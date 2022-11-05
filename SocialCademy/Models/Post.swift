@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Post: Identifiable, Equatable, Codable {
+struct Post: Identifiable, Equatable {
     var id = UUID()
     var title: String
     var content: String
@@ -24,7 +24,15 @@ struct Post: Identifiable, Equatable, Codable {
 
 }
 
+extension Post: Codable {
+    enum CodingKeys: CodingKey {
+        case title, content, author, timestamp, id
+    }
+}
 
+
+
+// -------------- test post ------------------
 extension Post {
     static let testPost = Post(
         title: "lorem ipsum",

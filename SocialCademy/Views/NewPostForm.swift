@@ -42,7 +42,7 @@ struct NewPostForm: View {
             }
             .onChange(of: viewModel.isWorking) { isWorking in
                 guard !isWorking, viewModel.error == nil else { return }
-                dismiss() // view will only be dismissed when the create action has been run successfully
+                dismiss() /// view will only be dismissed when the create action has been run successfully
             }
             .onSubmit(viewModel.submit)
             .navigationTitle("New Post")

@@ -12,11 +12,15 @@ struct MainTabView: View {
     
     var body: some View {
         TabView {
+            NavigationView {
             PostList(viewModel: factory.makePostsViewModel())
+            }
                 .tabItem {
                     Label("Posts", systemImage: "list.dash")
                 }
+                NavigationView {
             PostList(viewModel: factory.makePostsViewModel(filter: .favorites))
+                }
                 .tabItem {
                     Label("Favorites", systemImage: "heart")
                 }
@@ -24,9 +28,10 @@ struct MainTabView: View {
                 .tabItem {
                     Label("Profile", systemImage: "person")
                 }
+            }
         }
-    }
 }
+
 
 struct MainTabView_Previews: PreviewProvider {
     static var previews: some View {
