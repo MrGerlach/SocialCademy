@@ -41,11 +41,10 @@ struct PostRow: View {
             }
         }
         .padding(.vertical)
-        .confirmationDialog("Are you sure you want to delete this post?",
-                            isPresented: $showConfirmationDialog, titleVisibility: .visible) {
+        .confirmationDialog("Are you sure you want to delete this post?", isPresented: $showConfirmationDialog, titleVisibility: .visible) {
             Button("Delete", role: .destructive, action: {viewModel.deletePost()})
         }
-                            .alert("Cannot Delete Post", error: $viewModel.error)
+        .alert("Cannot Delete Post", error: $viewModel.error)
     }
 }
 

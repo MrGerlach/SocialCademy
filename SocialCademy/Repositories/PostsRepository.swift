@@ -29,7 +29,7 @@ struct PostsRepository: PostsRepositoryProtocol {
     }
     
     private func fetchPosts(from query: Query) async throws -> [Post] {
-        let snapshot = try await postsReference
+        let snapshot = try await query
             .order(by: "timestamp", descending: true)
             .getDocuments()
         return snapshot.documents.compactMap { document in
