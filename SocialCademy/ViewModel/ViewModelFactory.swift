@@ -16,12 +16,22 @@ class ViewModelFactory: ObservableObject {
     init(user: User) {
         self.user = user
     }
+    
     // -------- Functions ---------
     func makePostsViewModel(filter: PostsViewModel.Filter = .all) -> PostsViewModel {
         return PostsViewModel(filter: filter, postsRepository: PostsRepository(user: user))
     }
+    
+    func makeCommentsViewModel(for post: Post) -> CommentsViewModel {
+        return CommentsViewModel(commentsRepository: CommentsRepository(user: user, post: post))
+    }
+    
 }
 
+
+// --------------------- DANGER !!! ----------------------------
+//                       DEBUG AREA
+//                          :)
 #if DEBUG
 extension ViewModelFactory {
     static let preview = ViewModelFactory(user: User.testUser)

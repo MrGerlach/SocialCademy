@@ -11,6 +11,7 @@ struct PostRow: View {
     // ------- Variables -------
     @ObservedObject var viewModel: PostRowViewModel
     @State private var showConfirmationDialog = false
+    @EnvironmentObject private var factory: ViewModelFactory
 
     
 // --------------------------------- Body -----------------------------------------
@@ -32,8 +33,19 @@ struct PostRow: View {
             
             //  ----------- Buttons locations -------------
             HStack {
-                FavoriteButton(isFavorite: viewModel.isFavorite, action: {viewModel.favoritePost()})
+                FavoriteButton(isFavorite: viewModel.isFavorite, action: {viewModel.favoritePost()}) ///Favorite button
+                
                 Spacer()
+                
+                NavigationLink {
+                    CommentsList(viewModel: factory.makeCommentsViewModel(for: viewModel.post))
+                } label: {
+                    Label("Comments", systemImage: "text.bubble")
+                        .foregroundColor(.secondary)
+                }
+                
+                Spacer()
+                
                 Button(role: .destructive, action: {
                     showConfirmationDialog = true
                 }) {
@@ -44,7 +56,7 @@ struct PostRow: View {
         }
         .padding()
         
-        // ---------------- Delete Button ------------------------
+            // ---------- Delete Button ----------
         .confirmationDialog("Are you sure you want to delete this post?", isPresented: $showConfirmationDialog, titleVisibility: .visible) {
             Button("Delete", role: .destructive, action: {viewModel.deletePost()})
         }

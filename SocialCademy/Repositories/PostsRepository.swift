@@ -67,6 +67,7 @@ struct PostsRepository: PostsRepositoryProtocol {
    }
     
     func delete(_ post: Post) async throws {
+        precondition(canDelete(post))
         let document = postsReference.document(post.id.uuidString)
         try await document.delete()
     }
@@ -85,20 +86,6 @@ struct PostsRepository: PostsRepositoryProtocol {
     
 }
 
-// ____________________ Reference _______________________________
-private extension DocumentReference {
-    func setData<T: Encodable>(from value: T) async throws {
-        return try await withCheckedThrowingContinuation { continuation in
-            try! setData(from: value) { error in
-                if let error = error {
-                    continuation.resume(throwing: error)
-                    return
-                }
-                continuation.resume()
-            }
-        }
-    }
-}
 // ---------------- Favoriting posts in cloud -----------------
 private extension PostsRepository {
     
@@ -134,16 +121,10 @@ private extension Post {
         return post
     }
 }
-private extension Query {
-    func getDocuments<T: Decodable>(as type: T.Type) async throws -> [T] {
-        let snapshot = try await getDocuments()
-        return snapshot.documents.compactMap { document in
-            try! document.data(as: type)
-        }
-    }
-}
 
- //             Post Repository Stub
+// --------------------- DANGER !!! ----------------------------
+//                       DEBUG AREA
+//                          :)
 #if DEBUG
 struct PostRepositoryStub: PostsRepositoryProtocol {
     let state: Loadable<[Post]>

@@ -6,6 +6,8 @@
 //
 
 import Foundation
+
+
 enum Loadable<Value> {
     case loading
     case error(Error)
@@ -44,6 +46,10 @@ extension Loadable: Equatable where Value: Equatable {
         }
     }
 }
+
+// --------------------- DANGER !!! ----------------------------
+//                       DEBUG AREA
+//                          :)
 #if DEBUG
 extension Loadable {
     func simulate() async throws -> Value {

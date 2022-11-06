@@ -81,9 +81,9 @@ extension PostList {
     }
 }
             
-
-
-
+// --------------------- DANGER !!! ----------------------------
+//                       DEBUG AREA
+//                          :)
   #if DEBUG
 struct PostsList_Previews: PreviewProvider {
     static var previews: some View {
