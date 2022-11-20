@@ -35,6 +35,9 @@
 		90A23C29291686580016B281 /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A23C28291686580016B281 /* ViewModelFactory.swift */; };
 		90A2F7D729031D68005D2E78 /* PostRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A2F7D629031D68005D2E78 /* PostRowViewModel.swift */; };
 		90A2F7D92903DFB9005D2E78 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A2F7D82903DFB9005D2E78 /* MainTabView.swift */; };
+		90DEEE58292AB34900B18AA4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 90DEEE57292AB34900B18AA4 /* FirebaseStorage */; };
+		90DEEE5A292ABA6300B18AA4 /* StorageFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DEEE59292ABA6300B18AA4 /* StorageFile.swift */; };
+		90DEEE5C292ABEA200B18AA4 /* ImagePickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DEEE5B292ABEA200B18AA4 /* ImagePickerButton.swift */; };
 		90E4791C2909A41300D06530 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 90E4791B2909A41300D06530 /* FirebaseAuth */; };
 		90E4791F2909A7AB00D06530 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E4791E2909A7AB00D06530 /* AuthService.swift */; };
 		90E479212909AE0F00D06530 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E479202909AE0F00D06530 /* AuthViewModel.swift */; };
@@ -71,6 +74,8 @@
 		90A23C28291686580016B281 /* ViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelFactory.swift; sourceTree = "<group>"; };
 		90A2F7D629031D68005D2E78 /* PostRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRowViewModel.swift; sourceTree = "<group>"; };
 		90A2F7D82903DFB9005D2E78 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		90DEEE59292ABA6300B18AA4 /* StorageFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageFile.swift; sourceTree = "<group>"; };
+		90DEEE5B292ABEA200B18AA4 /* ImagePickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerButton.swift; sourceTree = "<group>"; };
 		90E4791E2909A7AB00D06530 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		90E479202909AE0F00D06530 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		90E479222909B13300D06530 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -87,6 +92,7 @@
 				907166EF28F1F7C40086F6E4 /* FirebaseAnalytics in Frameworks */,
 				907166F128F1F7C40086F6E4 /* FirebaseFirestore in Frameworks */,
 				907166F328F1F7C40086F6E4 /* FirebaseFirestoreSwift in Frameworks */,
+				90DEEE58292AB34900B18AA4 /* FirebaseStorage in Frameworks */,
 				90E4791C2909A41300D06530 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,6 +129,7 @@
 				903260CC28F7579B005EDDBC /* Loadable.swift */,
 				906F466E291828B30047D08E /* Firestore+Extensions.swift */,
 				906F467A291854A80047D08E /* ErrorHandler.swift */,
+				90DEEE59292ABA6300B18AA4 /* StorageFile.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -133,6 +140,7 @@
 				9068A11028F8A396000C6E5A /* EmptyListView.swift */,
 				907AFA9B29008ABE001B8D87 /* ErrorAlertViewModifier.swift */,
 				90E479282909C5B500D06530 /* PrimaryButtonStyle.swift */,
+				90DEEE5B292ABEA200B18AA4 /* ImagePickerButton.swift */,
 			);
 			path = SupportingViews;
 			sourceTree = "<group>";
@@ -249,6 +257,7 @@
 				907166F028F1F7C40086F6E4 /* FirebaseFirestore */,
 				907166F228F1F7C40086F6E4 /* FirebaseFirestoreSwift */,
 				90E4791B2909A41300D06530 /* FirebaseAuth */,
+				90DEEE57292AB34900B18AA4 /* FirebaseStorage */,
 			);
 			productName = SocialCademy;
 			productReference = 907166DC28F1F4E80086F6E4 /* SocialCademy.app */;
@@ -319,9 +328,11 @@
 				903260BE28F48764005EDDBC /* PostList.swift in Sources */,
 				903260CA28F4A8CE005EDDBC /* PostsRepository.swift in Sources */,
 				903260C728F4A486005EDDBC /* PostsViewModel.swift in Sources */,
+				90DEEE5C292ABEA200B18AA4 /* ImagePickerButton.swift in Sources */,
 				903260C028F48E4E005EDDBC /* PostRow.swift in Sources */,
 				906F467329182DBD0047D08E /* CommentsList.swift in Sources */,
 				90E4791F2909A7AB00D06530 /* AuthService.swift in Sources */,
+				90DEEE5A292ABA6300B18AA4 /* StorageFile.swift in Sources */,
 				907AFA9C29008ABE001B8D87 /* ErrorAlertViewModifier.swift in Sources */,
 				90E479252909B23100D06530 /* ProfileView.swift in Sources */,
 				906F467129182BB30047D08E /* CommentsViewModel.swift in Sources */,
@@ -464,14 +475,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "SocialCademy/Resources/Preview\\ Content/Preview\\ Assets.xcassets";
+				DEVELOPMENT_TEAM = QN92S3LQLG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This lets you add photos to your profile and posts.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -493,14 +506,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "SocialCademy/Resources/Preview\\ Content/Preview\\ Assets.xcassets";
+				DEVELOPMENT_TEAM = QN92S3LQLG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This lets you add photos to your profile and posts.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -563,6 +578,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 907166ED28F1F7C40086F6E4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
+		};
+		90DEEE57292AB34900B18AA4 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 907166ED28F1F7C40086F6E4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 		90E4791B2909A41300D06530 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
