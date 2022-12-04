@@ -9,7 +9,6 @@ import Foundation
 
 @MainActor
 
-
 class PostsViewModel: ObservableObject {
     
     // ------------- Variables ---------------
@@ -47,7 +46,7 @@ class PostsViewModel: ObservableObject {
         let favoriteAction = { [weak self] in
             let newValue = !post.isFavorite
             try await newValue ? self?.postsRepository.favorite(post) : self?.postsRepository.unfavorite(post)
-            
+
             guard let i = self?.posts.value?.firstIndex(of: post) else { return }
             self?.posts.value?[i].isFavorite = newValue
         }

@@ -38,7 +38,7 @@ extension StorageFile {
     }
     
     static func atURL(_ downloadURL: URL) -> StorageFile {
-        let storageReference = storage.reference(forURL:downloadURL.absoluteString)
+        let storageReference = storage.reference(forURL: downloadURL.absoluteString)
         return StorageFile(storageReference: storageReference)
     }
 }

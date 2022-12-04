@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ErrorAlertViewModifier: ViewModifier {
+private struct ErrorAlertViewModifier: ViewModifier {
     let title: String
     @Binding var error: Error?
     
@@ -18,6 +18,9 @@ struct ErrorAlertViewModifier: ViewModifier {
             }
     }
 }
+
+// -------------------  Extensions ------------------------
+
 extension View {
     func alert(_ title: String, error: Binding<Error?>) -> some View {
         modifier(ErrorAlertViewModifier(title: title, error: error))

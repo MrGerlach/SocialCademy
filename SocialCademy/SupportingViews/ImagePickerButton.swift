@@ -86,8 +86,10 @@ extension UIImagePickerController.SourceType: Identifiable {
     public var id: String { "\(self)" }
 }
 
-//struct ImagePickerButton_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ImagePickerButton()
-//    }
-//}
+struct ImagePickerButton_Previews: PreviewProvider {
+    static var previews: some View {
+        ImagePickerButton(imageURL: .constant(nil)) {
+            Label("Choose Image", systemImage: "photo.fill")
+        }
+    }
+}
