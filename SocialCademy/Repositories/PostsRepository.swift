@@ -32,7 +32,7 @@ extension PostsRepositoryProtocol {
 //_________________ Main Part ____________________________
 
 struct PostsRepository: PostsRepositoryProtocol {
-    let postsReference = Firestore.firestore().collection("posts_v2")
+    let postsReference = Firestore.firestore().collection("posts_v3")
     let favoritesReference = Firestore.firestore().collection("favorites")
     let user: User
     
@@ -40,6 +40,10 @@ struct PostsRepository: PostsRepositoryProtocol {
     
      func fetchAllPosts() async throws -> [Post] {
          return try await fetchPosts(from: postsReference)
+    }
+    
+    func fetchPosts(by author: User) async throws -> [Post] {
+        return try await fetchPosts(from: postsReference.whereField("author.id", isEqualTo: author.id))
     }
     
     func fetchFavoritePosts() async throws -> [Post] {
@@ -54,9 +58,7 @@ struct PostsRepository: PostsRepositoryProtocol {
             }
     }
     
-    func fetchPosts(by author: User) async throws -> [Post] {
-        return try await fetchPosts(from: postsReference.whereField("author.id", isEqualTo: author.id))
-    }
+   
     
     // ______________________________________________________
     //                      Actions

@@ -30,7 +30,7 @@ struct CommentsRepository: CommentsRepositoryProtocol {
     let post: Post
     
     private var commentsReference: CollectionReference {
-        let postsReference = Firestore.firestore().collection("posts_v2")
+        let postsReference = Firestore.firestore().collection("posts_v3")
         let document = postsReference.document(post.id.uuidString)
         return document.collection("comments")
     }
